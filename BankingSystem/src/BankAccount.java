@@ -40,7 +40,7 @@ public class BankAccount {
             throw new BankAccountException();
         }
         setBalance(getBalance()+depositAmount);
-        return "Deposit Successful";
+        return "Deposit Successful\n";
 
 
     }
@@ -52,12 +52,12 @@ public class BankAccount {
             throw new InsufficientFundsException();
         }else {
             setBalance(getBalance()-withdrawalAmount);
-            return "Withdrawal Successful";
+            return "Withdrawal Successful\n";
         }
     }
 
-    public void checkBalance(){
-        System.out.println("Balance:"+getBalance());
+    public double checkBalance(){
+        return getBalance();
     }
 
 
