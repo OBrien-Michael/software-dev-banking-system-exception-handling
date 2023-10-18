@@ -34,17 +34,30 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public String deposit(int accountNumber, double balance){
-        return "Deposited Successfully";
+    public String deposit(double depositAmount) throws BankAccountException{
+
+        if(depositAmount <= 0){
+            throw new BankAccountException();
+        }
+        setBalance(getBalance()+depositAmount);
+        return "Deposit Successful";
+
+
     }
 
-    public String withdrawal(int accountNumber, double balance){
-
-        return "Withdrawn Successfully";
+    public String withdrawal(double withdrawalAmount) throws InsufficientFundsException{
+        if(withdrawalAmount < 0){
+            throw new InsufficientFundsException();
+        } else if (withdrawalAmount > getBalance()) {
+            throw new InsufficientFundsException();
+        }else {
+            setBalance(getBalance()-withdrawalAmount);
+            return "Withdrawal Successful";
+        }
     }
 
-    public String checkBalance(int accountNumber){
-        return "Current Balance is: "+ this.getBalance();
+    public void checkBalance(){
+        System.out.println("Balance:"+getBalance());
     }
 
 
