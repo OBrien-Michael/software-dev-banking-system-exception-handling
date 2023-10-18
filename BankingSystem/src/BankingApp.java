@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class BankingApp {
     public static void main(String[] args) {
 
@@ -35,6 +37,21 @@ public class BankingApp {
         }
 
         System.out.print(accountOne.checkBalance());
+
+        LinkedList<BankAccount> bankAccountLinkedList = new LinkedList<BankAccount>();
+
+        bankAccountLinkedList.add(new BankAccount(1,11));
+        bankAccountLinkedList.add(new BankAccount(2,22));
+        bankAccountLinkedList.add(new BankAccount(3,33));
+        bankAccountLinkedList.add(new BankAccount(4,44));
+        bankAccountLinkedList.add(new BankAccount(5,55));
+        bankAccountLinkedList.add(new BankAccount(6,66));
+
+
+        for (BankAccount bankAccount:bankAccountLinkedList) {
+            System.out.println(bankAccount);
+        }
+
 
     }
 }
